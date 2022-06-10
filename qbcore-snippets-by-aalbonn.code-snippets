@@ -410,4 +410,33 @@
         ],
         "description": "Calls an export from qb-target"
       },
+	"ExampleLang" : { 
+       
+        "prefix": "examplelang", 
+         
+        "body": [  
+        "local Translations = {",
+        "  error = {",
+        "  },",
+        "  success = {",
+        "  },",
+        "  info = {",
+        "  },",
+        "  email = {",
+        "      mr = 'Mr',",
+        "      mrs = 'Mrs',",
+        "      sender = '',",
+        "      subject = '',",
+        "      message = '',",
+        "  }",
+        "}",
+        "",
+        "Lang = Locale:new({",
+        "  phrases = Translations,",
+        "  warnOnMissing = true,",
+        "})",
+        
+        ],
+        "description": "Deletes vehicle entity."
+      },
 }

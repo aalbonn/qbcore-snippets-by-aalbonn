@@ -13,8 +13,17 @@
 		],
 		"description": "error, sucess, primary, police, ambulance."
 	  },
+		  
+    "ServerNotify" : { 
+     "prefix": "qbnotifyserver",
+      "body": [
+      "local src = source",
+      "TriggerClientEvent('QBCore:Notify', src, '${1:Default Text}', '${2:Type}', 7500)",
+     ],
+     "description": "error, sucess, primary, police, ambulance."
+     },
 
-	  "GetPlayerData" : { 
+     "GetPlayerData" : { 
        
         "prefix": "qbgetplayer", 
          

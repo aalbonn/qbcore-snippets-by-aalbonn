@@ -452,4 +452,14 @@
         ],
         "description": "Deletes vehicle entity."
       },
+	"Lang" : { 
+
+        "prefix": "lang", 
+
+        "body": [  
+        "Lang:t('${1:Translation}'",
+        ],
+        
+        "description": "Loads an Animation before its called"
+      },  
 }

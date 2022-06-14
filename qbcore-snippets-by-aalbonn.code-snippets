@@ -460,6 +460,17 @@
         "Lang:t('${1:Translation}')",
         ],
         
-        "description": "Loads an Animation before its called"
-      },  
+        "description": "Just lang"
+      },
+
+      "localsrc" : { 
+
+        "prefix": "localsrc", 
+
+        "body": [  
+        "local src = source",
+        ],
+        
+        "description": "source to src"
+      }, 
 }

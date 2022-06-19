@@ -496,4 +496,15 @@
         
         "description": "example qb-log"
       },
+        "getmoney" : { 
+
+        "prefix": "qbgetmoney", 
+
+        "body": [  
+        "local xPlayer = QBCore.Functions.GetPlayer(source)",
+        "xPlayer.Functions.GetMoney('${1:Type}')",
+        ],
+        
+        "description": "getmoney type"
+      },
 }

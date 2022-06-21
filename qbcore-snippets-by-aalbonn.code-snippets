@@ -507,4 +507,56 @@
         
         "description": "getmoney type"
       },
+	
+	"sendbillingmailclient" : { 
+
+        "prefix": "qbsendbillmail", 
+
+        "body": [  
+        "RegisterNetEvent('${1:Resource Name}:client:SendBillEmail', function(amount) -- Usage at server file TriggerClientEvent('Resource Name:client:SendBillEmail', src, BillCost)",
+         "SetTimeout(math.random(2500, 4000), function()",
+          "local gender = Lang:t('email.mr')",
+          "if QBCore.Functions.GetPlayerData().charinfo.gender == 1 then",
+            "gender = Lang:t('email.mrs')",
+          "end",
+          "local charinfo = QBCore.Functions.GetPlayerData().charinfo",
+          "TriggerServerEvent('qb-phone:server:sendNewMail', {",
+            "sender = Lang:t('mail.sender'),",
+            "subject = Lang:t('mail.subject'),",
+            "message = Lang:t('mail.message', {gender = gender, lastname = charinfo.lastname, costs = amount}),",
+            "button = {}",
+          "})",
+         "end)",
+        "end)",
+        ],
+        
+        "description": "getmoney type"
+      },
+
+      "sendmailclient" : { 
+
+        "prefix": "qbsendnewmail", 
+
+        "body": [
+          "local src = source",
+          "local Player = QBCore.Functions.GetPlayer(src)",
+          "RegisterNetEvent('${1:Resource Name}:client:sendNewMail', function(charinfo) -- Usage ar server file TriggerClientEvent('Resource Name:client:sendNewMail', Player.PlayerData.source, Player.PlayerData.charinfo)",
+            "SetTimeout(math.random(2500, 4000), function()",
+              "local gender = Lang:t('email.mr')",
+              "if QBCore.Functions.GetPlayerData().charinfo.gender == 1 then",
+                "gender = Lang:t('email.mrs')",
+              "end",
+              "local charinfo = QBCore.Functions.GetPlayerData().charinfo",
+              "TriggerServerEvent('qb-phone:server:sendNewMail', {",
+                  "sender = Lang:t('email.sender'),",
+                  "subject = Lang:t('email.subject'),",
+                  "message = Lang:t('email.message', {gender = gender, lastname = charinfo.lastname, firstname = charinfo.firstname, phone = charinfo.phone}),",
+                  "button = {}",
+              "})",
+            "end)",
+          "end)",
+        ],
+        
+        "description": "getmoney type"
+      },
 }

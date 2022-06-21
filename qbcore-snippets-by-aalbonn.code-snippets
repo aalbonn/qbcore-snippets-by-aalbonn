@@ -480,7 +480,7 @@
         "body": [  
         "local src = source",
         "local xPlayer = QBCore.Functions.GetPlayer(src)",
-        "TriggerEvent('qb-log:server:CreateLog', '${1:Logs Channel}', '${2:Description}', 'red', '**'..GetPlayerName(src)..'** (CitizenID: '..xPlayer.PlayerData.citizenid..' | ID: '..src..' | Lisence: '..xPlayer.PlayerData.license..') **', false)",
+        "TriggerEvent('qb-log:server:CreateLog', '${1:Logs Channel}', '${2:Description}', 'red', '** '..xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname..' ** (CitizenID: '..xPlayer.PlayerData.citizenid..' | ID: '..src..' | License: '..xPlayer.PlayerData.license..') **', false)",
         ],
         
         "description": "example qb-log"
@@ -494,7 +494,7 @@
         "local xPlayer = QBCore.Functions.GetPlayer(src)",
         ],
         
-        "description": "example qb-log"
+        "description": "example xPlayer"
       },
         "getmoney" : { 
 

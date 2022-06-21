@@ -530,7 +530,7 @@
         "end)",
         ],
         
-        "description": "getmoney type"
+        "description": "send bill mail"
       },
 
       "sendmailclient" : { 
@@ -557,6 +557,6 @@
           "end)",
         ],
         
-        "description": "getmoney type"
+        "description": "send mail"
       },
 }

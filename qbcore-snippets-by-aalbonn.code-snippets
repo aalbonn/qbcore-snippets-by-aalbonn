@@ -485,11 +485,24 @@
         "body": [  
         "local src = source",
         "local xPlayer = QBCore.Functions.GetPlayer(src)",
-        "TriggerEvent('qb-log:server:CreateLog', '${1:Logs Channel}', '${2:Description}', 'red', '** '..xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname..' ** (CitizenID: '..xPlayer.PlayerData.citizenid..' | ID: '..src..' | License: '..xPlayer.PlayerData.license..') **', false)",
+        "TriggerEvent('qb-log:server:CreateLog', '${1:Logs Channel}', '${2:Description}', 'red', '** '..xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname..' ** (CitizenID: '..xPlayer.PlayerData.citizenid..' | ID: '..src..' | License: '..xPlayer.PlayerData.license..') | Steam: '..xPlayer.PlayerData.steam..') **', false)",
         ],
         
         "description": "example qb-log"
       },
+	"expabnlog" : { 
+
+        "prefix": "expabnlog", 
+
+        "body": [  
+        "local src = source",
+        "local xPlayer = QBCore.Functions.GetPlayer(src)",
+        "TriggerEvent('aalbonn:logs', '${1:Log Channel}', '${2:Log Deails}', source, Player.PlayerData.source)",
+        ],
+        
+        "description": "example aalbonn-log"
+      },
+
         "expxplayer" : { 
 
         "prefix": "xplayer", 

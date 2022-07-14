@@ -577,4 +577,18 @@
         
         "description": "send mail"
       },
+     "lsrplock" : { 
+
+        "prefix": "lsrplock", 
+
+        "body": [
+        "TriggerEvent('lsrp-lockpick:StartLockpickfo', function(result)",
+          "if result then",
+          "${1:Code}",
+          "end",
+        "end)",
+        ],
+        
+        "description": "lsrp lockpick"
+      },
 }

@@ -584,7 +584,9 @@
         "body": [
         "TriggerEvent('lsrp-lockpick:StartLockpickfo', function(result)",
           "if result then",
-          "${1:Code}",
+          "",
+          "else",
+          "",
           "end",
         "end)",
         ],

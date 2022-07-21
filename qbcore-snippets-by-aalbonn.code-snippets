@@ -9,7 +9,7 @@
     "Notify" : { 
        	"prefix": "qbnotify",
 		"body": [
-		  "QBCore.Functions.Notify('${1:Default Text}', '${2:Type}', 7500)",
+		  "QBCore.Functions.Notify('${1:Default Text}', '${2:Type}')",
 		],
 		"description": "error, sucess, primary, police, ambulance."
 	  },
@@ -18,7 +18,7 @@
      "prefix": "qbnotifyserver",
       "body": [
       "local src = source",
-      "TriggerClientEvent('QBCore:Notify', src, '${1:Default Text}', '${2:Type}', 7500)",
+      "TriggerClientEvent('QBCore:Notify', src, '${1:Default Text}', '${2:Type}')",
      ],
      "description": "error, sucess, primary, police, ambulance."
      },

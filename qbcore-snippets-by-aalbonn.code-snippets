@@ -600,9 +600,9 @@
         "body": [
           "local success = exports['aalbonn-skillbar']:StartLockPickCircle(1,10)",
           "if success then",
-            "${1:done}",
+          "   ${1:done}",
           "else",
-            "${2:Fail}",
+          "   ${2:Fail}",
           "end",
         ],
         

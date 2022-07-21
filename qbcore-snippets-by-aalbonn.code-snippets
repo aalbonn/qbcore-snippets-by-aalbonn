@@ -593,4 +593,19 @@
         
         "description": "lsrp lockpick"
       },
+      "aalbonn-skill" : { 
+
+        "prefix": "skillbar",
+
+        "body": [
+          "local success = exports['aalbonn-skillbar']:StartLockPickCircle(1,10)",
+          "if success then",
+            "${1:done}",
+          "else",
+            "${2:Fail}",
+          "end",
+        ],
+        
+        "description": "aalbonn-skillbar"
+      },
 }

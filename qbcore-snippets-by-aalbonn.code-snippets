@@ -6,413 +6,326 @@
 	// Placeholders with the same ids are connected.
 
 {
-    "Notify" : { 
-       	"prefix": "qbnotify",
-		"body": [
-		  "QBCore.Functions.Notify('${1:Default Text}', '${2:Type}')",
-		],
-		"description": "error, sucess, primary, police, ambulance."
-	  },
-		  
-    "ServerNotify" : { 
-     "prefix": "qbnotifyserver",
-      "body": [
-      "local src = source",
-      "TriggerClientEvent('QBCore:Notify', src, '${1:Default Text}', '${2:Type}')",
-     ],
-     "description": "error, sucess, primary, police, ambulance."
-     },
+  "Notify": {
+    "prefix": "qbnotify",
+    "body": [
+      "QBCore.Functions.Notify('${1:Default Text}', '${2:Type}')",
+    ],
+    "description": "error, sucess, primary, police, ambulance"
+  },
 
-     "GetPlayerData" : { 
-       
-        "prefix": "qbgetplayer", 
-         
-        "body": [  
-    
-        "local PlayerData = QBCore.Functions.GetPlayerData()",
-        
-        ],
-        "description": "Gets all the player data from the client"
-      },
+  "ServerNotify": {
+    "prefix": "qbnotifyserver",
+    "body": [
+      "TriggerClientEvent('QBCore:Notify', source, '${1:Default Text}', '${2:Type}')",
+    ],
+    "description": "error, sucess, primary, police, ambulance"
+  },
 
-      "GetCoreObject()" : { 
-       
-        "prefix": "localexp", 
-         
-        "body": [  
-    
-          "local QBCore = exports['qb-core']:GetCoreObject()",
-        ],
-        "description": "QBCore new export method"
-      },
+  "GetPlayerData": {
+    "prefix": "qbgetplayer",
+    "body": [
+    "local PlayerData = QBCore.Functions.GetPlayerData()",
+    ],
+    "description": "Get player data from the client"
+  },
 
-      "isLoggedIn" : { 
-       
-        "prefix": "LocalPlayer.state['isLoggedIn']", 
-         
-        "body": [  
-    
-          "LocalPlayer.state['isLoggedIn']",
-        ],
-        "description": "QBCore new isLoggedIn method"
-      },
+  "GetCoreObject()": {
+    "prefix": "localexp",
+    "body": [
+      "local QBCore = exports['qb-core']:GetCoreObject()",
+    ],
+    "description": "QBCore new export method"
+  },
 
-      "HasItem" : { 
-       
-        "prefix": "qbhasitem", 
-         
-        "body": [  
-    
-          "QBCore.Functions.HasItem('ItemName)"
-        ],
-        "description": "Returns whether or not a player has a certain item."
-      },
+  "isLoggedIn": {
+    "prefix": "isLoggedIn",
+    "body": [
+      "LocalPlayer.state['isLoggedIn']",
+    ],
+    "description": "QBCore new isLoggedIn method"
+  },
 
-      "Add Commands" : { 
-       
-        "prefix": "qbcommandsadd", 
-         
-        "body": [  
-    
-          "QBCore.Commands.Add('commandnamehere', 'help text here', {}, false, function(source, args)",
-          "    $0",
-          "end)",
-        ],
-        "description": "Add a command using QBCore.Commands.Add"
-      },
+  "HasItem": {
+    "prefix": "qbhasitem",
+    "body": [
+      "QBCore.Functions.HasItem('${1:Item}', ${2:Amount})"
+    ],
+    "description": "Returns whether or not a player has a certain item (client side)."
+  },
 
-      "CreateUseableItem" : { 
-       
-        "prefix": "qbcreateitem", 
-         
-        "body": [  
-    
-          "QBCore.Functions.CreateUseableItem(item , function(item)",
-          "    $0",
-          "end)",
-        ],
-        "description": "Makes an item useable."
-      },
+  "Add Commands": {
+    "prefix": "qbcommandsadd",
+    "body": [
+      "QBCore.Commands.Add('${1:Command}', '${2:Help Text}', {}, false, function(source, args)",
+      "    $0",
+      "end)",
+    ],
+    "description": "Add a command using QBCore.Commands.Add. You can add permissions after the end like 'end, 'god', 'admin')' "
+  },
 
-      "DrawText" : { 
-       
-        "prefix": "qbdrawtext", 
-         
-        "body": [  
-    
-          "function DrawText(x, y, width, height, scale, r, g, b, a, text)",
-          "    SetTextFont(4)",
-          "    SetTextProportional(0)",
-          "    SetTextScale(scale, scale)",
-          "    SetTextColour(r, g, b, a)",
-          "    SetTextDropShadow(0, 0, 0, 0,255)",
-          "    SetTextEdge(2, 0, 0, 0, 255)",
-          "    SetTextDropShadow()",
-          "    SetTextOutline()",
-          "    SetTextEntry('STRING')",
-          "    AddTextComponentString(text)",
-          "    DrawText(x - width/2, y - height/2 + 0.005)",
-          "end",
-        ],
-        "description": "Not used as commonly as 3D text, you can draw text on the screen with this function which makes it more convenient than having to make a new function locally."
-      },
+  "Create Item": {
+    "prefix": "qbcreateitem",
+    "body": [
+      "QBCore.Functions.CreateUseableItem(${1:Item} , function(item)",
+      "    $0",
+      "end)",
+    ],
+    "description": "Makes an item useable."
+  },
 
-      "CreateThread" : { 
-       
-        "prefix": "CreateThread", 
-         
-        "body": [  
-    
-          "CreateThread(function()",
-          "    while true do",
-          "        Wait(1)",
-          "        $0",
-          "    end",
-          "end)"
-        ],
-        "description": "Create a thread"
-      },
+  "DrawText": {
+    "prefix": "qbdrawtext",
+    "body": [
+      "function DrawText(x, y, width, height, scale, r, g, b, a, text)",
+      "    SetTextFont(4)",
+      "    SetTextProportional(0)",
+      "    SetTextScale(scale, scale)",
+      "    SetTextColour(r, g, b, a)",
+      "    SetTextDropShadow(0, 0, 0, 0,255)",
+      "    SetTextEdge(2, 0, 0, 0, 255)",
+      "    SetTextDropShadow()",
+      "    SetTextOutline()",
+      "    SetTextEntry('STRING')",
+      "    AddTextComponentString(text)",
+      "    DrawText(x - width/2, y - height/2 + 0.005)",
+      "end",
+    ],
+    "description": "Not used as commonly as 3D text, you can draw text on the screen with this function which makes it more convenient than having to make a new function locally."
+  },
 
-      "onResourceStart" : { 
-       
-        "prefix": "onResourceStart", 
-         
-        "body": [  
-    
-          "AddEventHandler('onResourceStart', function(resource)",
-          "   if resource == GetCurrentResourceName() then",
-          "      Wait(100)",
-          "      --Do Stuff here$0",
-          "   end",
-          "end)",
+  "DrawText3D": {
+    "prefix": "qbdrawtext3D",
+    "body": [
+      "function DrawText3D(x, y, z, text)",
+      "    SetTextScale(0.35, 0.35)",
+      "    SetTextFont(4)",
+      "    SetTextProportional(1)",
+      "    SetTextColour(255, 255, 255, 215)",
+      "    SetTextEntry('STRING')",
+      "    SetTextCentre(true)",
+      "    AddTextComponentString(text)",
+      "    SetDrawOrigin(x,y,z, 0)",
+      "    DrawText(0.0, 0.0)",
+      "    local factor = (string.len(text)) / 370",
+      "    DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)",
+      "    ClearDrawOrigin()",
+      "end",
+    ],
+    "description": "Another very common function you will see throughout the framework. This allows you to draw floating 3D text on the screen."
+  },
 
-        ],
-        "description": "This code runs as soon as a resource starts."
-      },
+  "CreateThread": {
+    "prefix": "CreateThread",
+    "body": [
+      "CreateThread(function()",
+      "    while true do",
+      "        Wait(1)",
+      "        ${1}",
+      "    end",
+      "end)"
+    ],
+    "description": "Create a thread"
+  },
 
-      "onResourceStop" : { 
-       
-        "prefix": "onResourceStop", 
-         
-        "body": [  
-    
-          "AddEventHandler('onResourceStop', function(resource)",
-          "   if resource == GetCurrentResourceName() then",
-          "      --Do Stuff here$0",
-          "   end",
-          "end)",
+  "onResourceStart": {
+    "prefix": "onResourceStart",
+    "body": [
+      "AddEventHandler('onResourceStart', function(resource)",
+      "   if resource == GetCurrentResourceName() then",
+      "      Wait(100)",
+      "      $0",
+      "   end",
+      "end)",
+    ],
+    "description": "This code runs as soon as a resource starts."
+  },
 
-        ],
-        "description": "This code runs as soon as a resource is stopped."
-      },
-      
-      "RegisterNetEvent" : { 
-       
-        "prefix": "RegisterNetEvent", 
-         
-        "body": [  
-    
-          "RegisterNetEvent('EventNameHere', function(data)",
-          "    $0",
-          "end)",
-        ],
-        "description": "placeholder"
-      },
+  "onResourceStop": {
+    "prefix": "onResourceStop",
+    "body": [
+      "AddEventHandler('onResourceStop', function(resource)",
+      "   if resource == GetCurrentResourceName() then",
+      "      $0",
+      "   end",
+      "end)",
+    ],
+    "description": "This code runs as soon as a resource is stopped."
+  },
 
-      "DrawText3D" : { 
-       
-        "prefix": "qbdrawtext3D", 
-         
-        "body": [  
-    
-          "function DrawText3D(x, y, z, text)",
-          "    SetTextScale(0.35, 0.35)",
-          "    SetTextFont(4)",
-          "    SetTextProportional(1)",
-          "    SetTextColour(255, 255, 255, 215)",
-          "    SetTextEntry('STRING')",
-          "    SetTextCentre(true)",
-          "    AddTextComponentString(text)",
-          "    SetDrawOrigin(x,y,z, 0)",
-          "    DrawText(0.0, 0.0)",
-          "    local factor = (string.len(text)) / 370",
-          "    DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)",
-          "    ClearDrawOrigin()",
-          "end",
+  "RegisterNetEvent": {
+    "prefix": "RegisterNetEvent",
+    "body": [
+      "RegisterNetEvent('${1:Event Name}', function(data)",
+      "    $0",
+      "end)",
+    ],
+    "description": "placeholder"
+  },
 
-        ],
-        "description": "Another very common function you will see throughout the framework. This allows you to draw floating 3D text on the screen."
-      },
+  "GetPlayer": {
+    "prefix": "localplayer", 
+    "body": [
+    "local Player = QBCore.Functions.GetPlayer(source)",
+    ],
+    "description": "(server side)"
+  },
 
-      "GetPlayer" : { 
-       
-        "prefix": "qbgetplayer", 
-         
-        "body": [  
-    
-        "local Player = QBCore.Functions.GetPlayer(source)",
-        
-        ],
-        "description": "This returns the player (server side)"
-      },
+  "PlayerData ": {
+    "prefix": "PlayerData",
+    "body": [
+      "local PlayerData = {}",
+      "",
+      "RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()",
+      "    PlayerData = QBCore.Functions.GetPlayerData()",
+      "end)",
+      "",
+      "RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()",
+      "    PlayerData = {}",
+      "end)",
+      "",
+      "RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)",
+      "    PlayerData.job = JobInfo",
+      "end)",
+      "",
+      "RegisterNetEvent('QBCore:Client:OnGangUpdate', function(GangInfo)",
+      "    PlayerData.gang = GangInfo",
+      "end)",
+      "",
+      "RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)",
+      "    PlayerData = val",
+      "end)",
+    ],
+    "description": "This is how to register playerdata without having to call the function everytime. -- Code thanks to BerkieB#5038"
+  },
 
-      "PlayerData " : { 
-       
-        "prefix": "PlayerData", 
-         
-        "body": [  
-    
-        "local PlayerData = {}",
-        "",
-        "-- Sets the playerdata when spawned",
-        "RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()",
-        "    PlayerData = QBCore.Functions.GetPlayerData()",
-        "end)",
-        "",
-        "-- Sets the playerdata to an empty table when the player has quit or did /logout",
-        "RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()",
-        "    PlayerData = {}",
-        "end)",
-        "",
-        "-- When the players job gets updated this will trigger and update the playerdata",
-        "RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)",
-        "    PlayerData.job = JobInfo",
-        "end)",
-        "",
-        "-- When the players gang gets updated this will trigger and update the playerdata",
-        "RegisterNetEvent('QBCore:Client:OnGangUpdate', function(GangInfo)",
-        "    PlayerData.gang = GangInfo",
-        "end)",
-        "",
-        "-- This will update all the PlayerData that doesn't get updated with a specific event other than this like the metadata",
-        "RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)",
-        "    PlayerData = val",
-        "end)",
-        
-        ],
-        "description": "This is how to register playerdata without having to call the function everytime. -- Code thanks to BerkieB#5038"
-      },
+  "Progressbar": {
+    "prefix": "qbprogress",
+    "body": [
+      "QBCore.Functions.Progressbar('name_here', 'Text that shows on bar...', 5000, false, true, { -- Name | Label | Time | useWhileDead | canCancel",
+      "   disableMovement = true,",
+      "   disableCarMovement = true,",
+      "   disableMouse = false,",
+      "   disableCombat = true,",
+      " }, {",
+      "   animDict = 'anim@gangops@facility@servers@',",
+      "   anim = 'hotwire',",
+      "   flags = 16,",
+      " }, {}, {}, function() -- Play When Done",
+      "   --Stuff goes here",
+      " end, function() -- Play When Cancel",
+      "   --Stuff goes here",
+      "end)",
+    ],
+    "description": "Allows you to call this function instead of using an export for the progress bar."
+  },
 
-      "Progressbar" : { 
-       
-        "prefix": "qbprogress", 
-         
-        "body": [  
-    
-        "QBCore.Functions.Progressbar('name_here', 'Text that shows on bar...', 5000, false, true, { -- Name | Label | Time | useWhileDead | canCancel",
-        "    disableMovement = true,",
-        "    disableCarMovement = true,",
-        "    disableMouse = false,",
-        "    disableCombat = true,",
-        "    }, {",
-        "    animDict = 'anim@gangops@facility@servers@',",
-        "    anim = 'hotwire',",
-        "    flags = 16,",
-        "    }, {}, {}, function() -- Play When Done",
-        "         --Stuff goes here",
-        "    end, function() -- Play When Cancel",
-        "    --Stuff goes here",
-        "end)",
-        
-        
-        ],
-        "description": "Allows you to call this function instead of using an export for the progress bar."
-      },
+  "SpawnVehicle": { 
+    "prefix": "qbspawnvehicle",
+    "body": [
+      "QBCore.Functions.SpawnVehicle(VehicleModel, function(veh)",
+      "    $0",
+      "end, coords, true)"
+    ],
+    "description": "Spawns a specific vehicle model."
+  },
 
-      "SpawnVehicle" : { 
-       
-        "prefix": "qbspawnvehicle", 
-         
-        "body": [  
-    
-        "QBCore.Functions.SpawnVehicle(VehicleModel, function(veh)",
-        "    $0",
-        "end, coords, true)"
-        
-        ],
-        "description": "Spawns a specific vehicle model."
-      },
+  "GetClosestVehicle": {
+    "prefix": "qbgetclosestvehicle",
+    "body": [
+      "local vehicle = QBCore.Functions.GetClosestVehicle()",
+    ],
+    "description": "Returns the closest vehicle to the player at the time."
+  },
 
-      "GetClosestVehicle" : { 
-       
-        "prefix": "qbgetclosestvehicle", 
-         
-        "body": [  
-    
-        "local vehicle = QBCore.Functions.GetClosestVehicle()",
-        
-        ],
-        "description": "Returns the closest vehicle to the player at the time."
-      },
+  "TriggerCallback": { 
+    "prefix": "qbtriggercallback",
+    "body": [
+      "QBCore.Functions.TriggerCallback('${1:Callback Name}', function(result)",
+      "    $0",
+      "end)",
+    ],
+    "description": "Allows you to retrieve information by calling to the server and getting something in return."
+  },
 
-      "TriggerCallback" : { 
-       
-        "prefix": "qbtriggercallback", 
-         
-        "body": [  
-    
-        "QBCore.Functions.TriggerCallback('CallbackName', function(result)",
-        "    $0",
-        "end)",
-        
-        
-        ],
-        "description": "Allows you to retrieve information by calling to the server and getting something in return."
-      },
+  "DeleteVehicle": {
+    "prefix": "qbdeletevehicle",
+    "body": [
+      "QBCore.Functions.DeleteVehicle(Vehicle)",
+    ],
+    "description": "Deletes vehicle entity."
+  },
 
-      "DeleteVehicle" : { 
-       
-        "prefix": "qbdeletevehicle", 
-         
-        "body": [  
-    
-        "QBCore.Functions.DeleteVehicle(Vehicle)",
-        
-        ],
-        "description": "Deletes vehicle entity."
-      },
+  "ExampleManifest": {
+    "prefix": "aalbonn.ExampleManifest",
+    "body": [
+      "fx_version 'cerulean'",
+      "game 'gta5'",
+      "",
+      "description 'aalbonn Example Manifest'",
+      "version '1.0.0'",
+      "",
+      "shared_scripts { ",
+      "    '@qb-core/shared/locale.lua',",
+      "    'locales/en.lua',",
+      "    'config.lua',",
+      "}",
+      "",
+      "client_scripts {",
+      "    '@PolyZone/client.lua',",
+      "    '@PolyZone/BoxZone.lua',",
+      "    '@PolyZone/EntityZone.lua',",
+      "    '@PolyZone/CircleZone.lua',",
+      "    '@PolyZone/ComboZone.lua',",
+      "    'client/*.lua'",
+      "}",
+      "",
+      "server_scripts {",
+      "    '@oxmysql/lib/MySQL.lua',",
+      "    'config/config_sv.lua', -- Non globbing method (Server config for keeping webhooks or other important information)",
+      "    'server/*.lua'",
+      "}",
+      "",
+      "ui_page 'html/ui.html'",
+      "",
+      "files {",
+      "    'html/ui.html',",
+      "    'html/css/main.css',",
+      "    'html/js/*.js', -- Globbing also works here in case you have multiple js files",
+      "    'html/js/app.js'",
+      "}",
+      "",
+      "dependencies{",
+      "",
+      "}",
+      "",
+      "lua54 'yes' -- Add in case you want to use lua 5.4 (https://www.lua.org/manual/5.4/manual.html)",
+    ],
+    "description": "Pastes an Example Manifest for you to edit."
+  },
 
-      "ExampleManifest" : { 
-       
-        "prefix": "aalbonn.ExampleManifest", 
-         
-        "body": [  
-    
-            "fx_version 'cerulean'",
-            "game 'gta5'",
-            " ",
-            "description 'aalbonn Example Manifest'",
-            "version '1.0.0'",
-            " ",
-            "shared_scripts { ",
-	    "	 'config.lua',",
-	    "	 '@qb-core/shared/locale.lua',",
- 	    "	 'locales/en.lua',",
-            "}",
-            " ",
-            "client_scripts {",
-            "	 '@PolyZone/client.lua',",
-            "	 '@PolyZone/BoxZone.lua',",
-            "	 '@PolyZone/EntityZone.lua',",
-            "    '@PolyZone/CircleZone.lua',",
-            "    '@PolyZone/ComboZone.lua',",
-            "    'client/*.lua' -- Globbing method for multiple files",
-            "}",
-            " ",
-            "server_scripts {",
-	    "    '@oxmysql/lib/MySQL.lua',",
-            "    'config/config_sv.lua', -- Non globbing method (Server config for keeping webhooks or other important information)",
-            "    'server/*.lua' -- Globbing method for multiple files",
-            "}",
-            " ",
-            "ui_page 'html/ui.html'",
-            " ",
-            "files {",
-            "    'html/ui.html',",
-            "    'html/css/main.css',",
-            "    'html/js/*.js', -- Globbing also works here in case you have multiple js files",
-            "    'html/js/app.js'",
-            "}",
-	    "",
-            "dependencies{",
-            "",
-            "}",
-            " ",
-	    "lua54 'yes' -- Add in case you want to use lua 5.4 (https://www.lua.org/manual/5.4/manual.html)",
-        
-        ],
-        "description": "Pastes an Example Manifest for you to edit."
-      },
-
-      "LoadAnimDict" : { 
-       
-        "prefix": "LoadAnimDict", 
-         
-        "body": [  
-    
+  "LoadAnimDict": {
+    "prefix": "LoadAnimDict",
+    "body": [  
       "function LoadAnimDict(dict)",
       "    while (not HasAnimDictLoaded(dict)) do",
       "        RequestAnimDict(dict)",
       "        Wait(5)",
       "    end",
       "end",
+    ],
+    "description": "Loads an Animation before its called"
+  },
 
-        ],
-        "description": "Loads an Animation before its called"
-      },
-
-      "qb-target Box Zone" : { 
-       
-        "prefix": "AddBoxZone", 
-         
-        "body": [  
-
-      "exports['qb-target']:AddBoxZone('BoxZoneName', vector3(123.4, -567.8, 910.11), 1, 1, {",
+  "qb-target Box Zone": {
+    "prefix": "AddBoxZone",
+    "body": [
+      "exports['qb-target']:AddBoxZone('BoxZoneName', ${1:Coordsv}, 1, 1, {",
       "    name='BoxZoneName',",
-      "    heading=57.45,",
+      "    heading=0.0,",
       "    debugPoly=false,",
-      "    minZ = 6.04,",
-      "    maxZ = 7.64,",
+      "    minZ = 0.0,",
+      "    maxZ = 0.0,",
       "    }, {",
       "        options = {",
       "            {",
@@ -424,188 +337,139 @@
       "        },",
       "    distance = 3.5",
       "})",
+    ],
+    "description": "Calls an export from qb-target"
+  },
 
-        ],
-        "description": "Calls an export from qb-target"
-      },
-	"ExampleLang" : { 
-       
-        "prefix": "examplelang", 
-         
-        "body": [  
-        "local Translations = {",
-        "  error = {",
-        "  },",
-        "  success = {",
-        "  },",
-        "  info = {",
-        "  },",
-        "  email = {",
-        "      mr = 'Mr',",
-        "      mrs = 'Mrs',",
-        "      sender = '',",
-        "      subject = '',",
-        "      message = '',",
-        "  }",
-        "}",
+  "ExampleLang": {
+    "prefix": "examplelang",
+    "body": [
+      "local Translations = {",
+      "  error = {",
+      "  },",
+      "  success = {",
+      "  },",
+      "  info = {",
+      "  },",
+      "  email = {",
+      "      mr = 'Mr',",
+      "      mrs = 'Mrs',",
+      "      sender = '',",
+      "      subject = '',",
+      "      message = '',",
+      "  }",
+      "}",
+      "",
+      "Lang = Locale:new({",
+      "  phrases = Translations,",
+      "  warnOnMissing = true,",
+      "})",
+    ],
+    "description": "Example Lang usage for locales."
+  },
+
+  "Lang": {
+    "prefix": "lang",
+    "body": [
+      "Lang:t('${1:Translation}')",
+    ],
+    "description": "Just lang"
+  },
+
+  "localsrc": {
+    "prefix": "localsrc",
+    "body": [
+      "local src = source",
+    ],
+    "description": "source to src"
+  },
+
+  "explogs": {
+    "prefix": "explogs",
+    "body": [
+      "local Player = QBCore.Functions.GetPlayer(source)",
+      "TriggerEvent('qb-log:server:CreateLog', '${1:Logs Channel}', '${2:Description}', 'red', '** '..Player.PlayerData.charinfo.firstname..' '..Player.PlayerData.charinfo.lastname..' ** (CitizenID: '..Player.PlayerData.citizenid..' | ID: '..source..' | License: '..Player.PlayerData.license..') | Steam: '..Player.PlayerData.steam..') **', false)",
+    ],
+    "description": "Detailed log for qbcore log system"
+  },
+
+  "expabnlog": {
+    "prefix": "expabnlog",
+    "body": [
+      "local Player = QBCore.Functions.GetPlayer(source)",
+      "TriggerEvent('aalbonn:logs', '${1:Log Channel}', '${2:Log Deails}', source, Player.PlayerData.source)",
+    ],
+    "description": "example aalbonn-log just for my log system"
+  },
+
+  "getmoney": {
+    "prefix": "qbgetmoney",
+    "body": [
+      "local Player = QBCore.Functions.GetPlayer(source)",
+      "Player.Functions.GetMoney('${1:Type}')",
+    ],
+    "description": "getmoney type"
+  },
+
+  "sendmailclient": {
+    "prefix": "qbsendnewmailclient",
+    "body": [
+      "RegisterNetEvent('${1:Resource Name}:client:sendEmail', function(charinfo) -- usage TriggerClientEvent('Resource Name:client:sendEmail', Player.PlayerData.charinfo)",
+      "    SetTimeout(math.random(2500, 4000), function()",
+      "        local gender = Lang:t('email.mr')",
+      "        if PlayerData.charinfo.gender == 1 then",
+      "            gender = Lang:t('email.mrs')",
+      "        end",
+      "        TriggerServerEvent('qb-phone:server:sendNewMail', {",
+      "            sender = Lang:t('email.sender'),",
+      "            subject = Lang:t('email.subject'),",
+      "            message =  Lang:t('email.message', {gender = gender, lastname = charinfo.lastname, firstname = charinfo.firstname, phone = charinfo.phone}),",
+      "            button = {}",
+      "        })",
+      "    end)",
+      "end)"
+    ],
+    "description": "Send mail (client side)"
+  },
+
+  "lsrplock": {
+    "prefix": "lsrplock",
+    "body": [
+      "TriggerEvent('lsrp-lockpick:StartLockpickfo', function(result)",
+        "if result then",
         "",
-        "Lang = Locale:new({",
-        "  phrases = Translations,",
-        "  warnOnMissing = true,",
-        "})",
-        
-        ],
-        "description": "Deletes vehicle entity."
-      },
-	"Lang" : { 
+        "else",
+        "   QBCore.Functions.Notify('Failed', 'error')",
+        "end",
+      "end)",
+    ],
+    "description": "lsrp lockpick https://github.com/aalbonn/lsrp-lockpickfo "
+  },
 
-        "prefix": "lang", 
+  "aalbonn-skill": {
+    "prefix": "skillbar",
+    "body": [
+      "local success = exports['aalbonn-skillbar']:StartLockPickCircle(1,10)",
+      "if success then",
+      "   ${1:done}",
+      "else",
+      "   QBCore.Functions.Notify('Failed', 'error')",
+      "end",
+    ],
+    "description": "aalbonn-skillbar"
+  },
 
-        "body": [  
-        "Lang:t('${1:Translation}')",
-        ],
-        
-        "description": "Just lang"
-      },
-
-      "localsrc" : { 
-
-        "prefix": "localsrc", 
-
-        "body": [  
-        "local src = source",
-        ],
-        
-        "description": "source to src"
-      }, 
-	"explogs" : { 
-
-        "prefix": "explogs", 
-
-        "body": [  
-        "local src = source",
-        "local xPlayer = QBCore.Functions.GetPlayer(src)",
-        "TriggerEvent('qb-log:server:CreateLog', '${1:Logs Channel}', '${2:Description}', 'red', '** '..xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname..' ** (CitizenID: '..xPlayer.PlayerData.citizenid..' | ID: '..src..' | License: '..xPlayer.PlayerData.license..') | Steam: '..xPlayer.PlayerData.steam..') **', false)",
-        ],
-        
-        "description": "example qb-log"
-      },
-	"expabnlog" : { 
-
-        "prefix": "expabnlog", 
-
-        "body": [  
-        "local src = source",
-        "local xPlayer = QBCore.Functions.GetPlayer(src)",
-        "TriggerEvent('aalbonn:logs', '${1:Log Channel}', '${2:Log Deails}', source, Player.PlayerData.source)",
-        ],
-        
-        "description": "example aalbonn-log"
-      },
-
-        "expxplayer" : { 
-
-        "prefix": "xplayer", 
-
-        "body": [  
-        "local src = source",
-        "local xPlayer = QBCore.Functions.GetPlayer(src)",
-        ],
-        
-        "description": "example xPlayer"
-      },
-        "getmoney" : { 
-
-        "prefix": "qbgetmoney", 
-
-        "body": [  
-        "local xPlayer = QBCore.Functions.GetPlayer(source)",
-        "xPlayer.Functions.GetMoney('${1:Type}')",
-        ],
-        
-        "description": "getmoney type"
-      },
-	
-	"sendbillingmailclient" : { 
-
-        "prefix": "qbsendbillmail", 
-
-        "body": [  
-        "RegisterNetEvent('${1:Resource Name}:client:SendBillEmail', function(amount) -- Usage at server file TriggerClientEvent('Resource Name:client:SendBillEmail', src, BillCost)",
-         "SetTimeout(math.random(2500, 4000), function()",
-          "local gender = Lang:t('email.mr')",
-          "if QBCore.Functions.GetPlayerData().charinfo.gender == 1 then",
-            "gender = Lang:t('email.mrs')",
-          "end",
-          "local charinfo = QBCore.Functions.GetPlayerData().charinfo",
-          "TriggerServerEvent('qb-phone:server:sendNewMail', {",
-            "sender = Lang:t('mail.sender'),",
-            "subject = Lang:t('mail.subject'),",
-            "message = Lang:t('mail.message', {gender = gender, lastname = charinfo.lastname, costs = amount}),",
-            "button = {}",
-          "})",
-         "end)",
-        "end)",
-        ],
-        
-        "description": "send bill mail"
-      },
-
-      "sendmailclient" : { 
-
-        "prefix": "qbsendnewmail", 
-
-        "body": [
-          "local src = source",
-          "local Player = QBCore.Functions.GetPlayer(src)",
-          "RegisterNetEvent('${1:Resource Name}:client:sendNewMail', function(charinfo) -- Usage ar server file TriggerClientEvent('Resource Name:client:sendNewMail', Player.PlayerData.source, Player.PlayerData.charinfo)",
-            "SetTimeout(math.random(2500, 4000), function()",
-              "local gender = Lang:t('email.mr')",
-              "if QBCore.Functions.GetPlayerData().charinfo.gender == 1 then",
-                "gender = Lang:t('email.mrs')",
-              "end",
-              "local charinfo = QBCore.Functions.GetPlayerData().charinfo",
-              "TriggerServerEvent('qb-phone:server:sendNewMail', {",
-                  "sender = Lang:t('email.sender'),",
-                  "subject = Lang:t('email.subject'),",
-                  "message = Lang:t('email.message', {gender = gender, lastname = charinfo.lastname, firstname = charinfo.firstname, phone = charinfo.phone}),",
-                  "button = {}",
-              "})",
-            "end)",
-          "end)",
-        ],
-        
-        "description": "send mail"
-      },
-     "lsrplock" : { 
-
-        "prefix": "lsrplock", 
-
-        "body": [
-        "TriggerEvent('lsrp-lockpick:StartLockpickfo', function(result)",
-          "if result then",
-          "",
-          "else",
-          "",
-          "end",
-        "end)",
-        ],
-        
-        "description": "lsrp lockpick"
-      },
-      "aalbonn-skill" : { 
-
-        "prefix": "skillbar",
-
-        "body": [
-          "local success = exports['aalbonn-skillbar']:StartLockPickCircle(1,10)",
-          "if success then",
-          "   ${1:done}",
-          "else",
-          "   ${2:Fail}",
-          "end",
-        ],
-        
-        "description": "aalbonn-skillbar"
-      },
+  "HasItem Callback": {
+    "prefix": "qbhasitemcallback",
+    "body": [
+      "QBCore.Functions.TriggerCallback('QBCore:HasItem', function(HasItem)",
+      "    if HasItem then",
+      "       $0",
+      "    else",
+      "        QBCore.Functions.Notify('You dont have the item', 'error')",
+      "    end",
+      "end, '${1:Item}')",
+    ],
+    "description": "Triggers callback from qb-core server (client use)"
+  },
 }

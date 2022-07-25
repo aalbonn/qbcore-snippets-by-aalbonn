@@ -207,11 +207,7 @@
       "   disableCarMovement = true,",
       "   disableMouse = false,",
       "   disableCombat = true,",
-      " }, {",
-      "   animDict = 'anim@gangops@facility@servers@',",
-      "   anim = 'hotwire',",
-      "   flags = 16,",
-      " }, {}, {}, function() -- Play When Done",
+      " }, {}, {}, {}, function() -- Play When Done",
       "   --Stuff goes here",
       " end, function() -- Play When Cancel",
       "   --Stuff goes here",
@@ -472,4 +468,21 @@
     ],
     "description": "Triggers callback from qb-core server (client use)"
   },
+
+  "Emote Start": {
+    "prefix": "emotestart",
+    "body": [
+      "TriggerEvent('animations:client:EmoteCommandStart', {'${1:Emote}'})"
+    ],
+    "description": "To start emote etc. in progressbar (dpemotes)"
+  },
+
+  "Emote Stop": {
+    "prefix": "emotestop",
+    "body": [
+      "TriggerEvent('animations:client:EmoteCommandStart', {'c'})"
+    ],
+    "description": "To stop emote etc. in progressbar (dpemotes)"
+  },
+
 }

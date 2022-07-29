@@ -485,4 +485,14 @@
     "description": "To stop emote etc. in progressbar (dpemotes)"
   },
 
+  "Register Command": {
+    "prefix": "RegisterCommand",
+    "body": [
+      "RegisterCommand('${1:Command Here}', function(data)",
+      " $0",
+      "end)",
+    ],
+    "description": "register command (use qbcommandsadd if you are in server side)"
+  },
+
 }

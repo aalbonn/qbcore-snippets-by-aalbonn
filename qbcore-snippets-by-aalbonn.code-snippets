@@ -495,4 +495,32 @@
     "description": "register command (use qbcommandsadd if you are in server side)"
   },
 
+  "aalbonn-base item control": {
+    "prefix": "aalbonnitemcontol",
+    "body": [
+    "QBCore.Functions.TriggerCallback('aalbonn-base:item-kontrol', function(qtty)",
+    "  if qtty > 0 then",
+    "",
+    "  else",
+    "",
+    "  end",
+    "end, ${1:item})"
+    ],
+    "description": "it's just for my server"
+  },
+
+  "aalbonn-base hasmoney": {
+    "prefix": "aalbonnhasmoney",
+    "body": [
+    "QBCore.Functions.TriggerCallback('aalbonn-base:HasMoney', function(result)",
+    "  if result then",
+    "",
+    "  else",
+    "",
+    "  end",
+    "end, '${1:type}', ${2:amount})"
+    ],
+    "description": "it's just for my server"
+  },
+  
 }

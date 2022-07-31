@@ -516,7 +516,7 @@
     "  if result then",
     "",
     "  else",
-    "",
+    "     QBCore.Functions.Notify('Insufficent Money', 'error')",
     "  end",
     "end, '${1:type}', ${2:amount})"
     ],

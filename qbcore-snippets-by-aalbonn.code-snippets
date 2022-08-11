@@ -512,7 +512,7 @@
   "aalbonn-base hasmoney": {
     "prefix": "aalbonnhasmoney",
     "body": [
-    "QBCore.Functions.TriggerCallback('aalbonn-base:has-money', function(result)",
+    "QBCore.Functions.TriggerCallback('aalbonn-base:HasMoney', function(result)",
     "  if result then",
     "",
     "  else",
@@ -521,6 +521,14 @@
     "end, '${1:type}', ${2:amount})"
     ],
     "description": "it's just for my server"
+  },
+
+  "Player Ped": {
+    "prefix": "localped",
+    "body": [
+      "local ped = PlayerPedId()",
+    ],
+    "description": "playerped thing for client side"
   },
   
 }

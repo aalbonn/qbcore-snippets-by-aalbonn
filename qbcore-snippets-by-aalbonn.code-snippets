@@ -530,5 +530,36 @@
     ],
     "description": "playerped thing for client side"
   },
-  
+
+  "qb-menu": {
+    "prefix": "expqbmenu",
+    "body": [
+    "exports['qb-menu']:openMenu({",
+    "    {",
+    "        header = '',",
+    "        isMenuHeader = true",
+    "    },",
+    "    {",
+    "        header = 'Close menu',",
+    "        txt = '',",
+    "        icon = 'fa-solid fa-angle-left',",
+    "        params = {",
+    "            event = 'qb-menu:closeMenu',",
+    "            args = {}",
+    "        }",
+    "    },",
+    "})"
+    ],
+    "description": "playerped thing for client side"
+  },
+
+  "Settimout": {
+    "prefix": "settimout",
+    "body": [
+    "SetTimeout(5000, function()",
+    "    $0",
+    "end)"
+    ],
+    "description": "playerped thing for client side"
+  },
 }

@@ -562,4 +562,14 @@
     ],
     "description": "playerped thing for client side"
   },
+
+  "function": {
+    "prefix": "localfunction",
+    "body": [
+    "local function $0()",
+    "    $1",
+    "end"
+    ],
+    "description": "playerped thing for client side"
+  },
 }

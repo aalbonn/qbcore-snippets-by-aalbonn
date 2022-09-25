@@ -572,4 +572,12 @@
     ],
     "description": "playerped thing for client side"
   },
+
+  "setmetadata": {
+    "prefix": "qbsetmetadata",
+    "body": [
+    "Player.Functions.SetMetaData('${1:MetaData}', ${2:Value})",
+    ],
+    "description": "playerped thing for client side"
+  },
 }

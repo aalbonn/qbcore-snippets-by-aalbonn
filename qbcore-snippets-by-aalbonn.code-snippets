@@ -54,6 +54,14 @@
     "description": "Returns whether or not a player has a certain item (client side)."
   },
 
+  "HasItemserver": {
+    "prefix": "qbhasitemserver",
+    "body": [
+      "QBCore.Functions.HasItem(source, '${1:Item}', ${2:Amount})"
+    ],
+    "description": "Returns whether or not a player has a certain item (server side)."
+  },
+
   "Add Commands": {
     "prefix": "qbcommandsadd",
     "body": [

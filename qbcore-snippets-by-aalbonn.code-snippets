@@ -17,7 +17,7 @@
   "ServerNotify": {
     "prefix": "qbnotifyserver",
     "body": [
-      "TriggerClientEvent('QBCore:Notify', source, '${1:Default Text}', '${2:Type}')",
+      "QBCore.Functions.Notify(source, '${1:Default Text}', '${2:Type}')",
     ],
     "description": "error, sucess, primary, police, ambulance"
   },
@@ -308,19 +308,6 @@
     "description": "Pastes an Example Manifest for you to edit."
   },
 
-  "LoadAnimDict": {
-    "prefix": "LoadAnimDict",
-    "body": [  
-      "function LoadAnimDict(dict)",
-      "    while (not HasAnimDictLoaded(dict)) do",
-      "        RequestAnimDict(dict)",
-      "        Wait(5)",
-      "    end",
-      "end",
-    ],
-    "description": "Loads an Animation before its called"
-  },
-
   "qb-target Box Zone": {
     "prefix": "AddBoxZone",
     "body": [
@@ -587,5 +574,13 @@
     "Player.Functions.SetMetaData('${1:MetaData}', ${2:Value})",
     ],
     "description": "playerped thing for client side"
+  },
+
+  "getplayerdata": {
+    "prefix": "qbplayerdata",
+    "body": [
+    "QBCore.Functions.GetPlayerData()",
+    ],
+    "description": "get playerdata for only client side"
   },
 }

@@ -437,19 +437,6 @@
     "description": "lsrp lockpick https://github.com/aalbonn/lsrp-lockpickfo "
   },
 
-  "aalbonn-skill": {
-    "prefix": "skillbar",
-    "body": [
-      "local success = exports['aalbonn-skillbar']:StartLockPickCircle(1,10)",
-      "if success then",
-      "   ${1:done}",
-      "else",
-      "   QBCore.Functions.Notify('Failed', 'error')",
-      "end",
-    ],
-    "description": "aalbonn-skillbar"
-  },
-
   "HasItem Callback": {
     "prefix": "qbhasitemcallback",
     "body": [
@@ -582,5 +569,75 @@
     "QBCore.Functions.GetPlayerData()",
     ],
     "description": "get playerdata for only client side"
+  },
+
+  "ps-ui Circle": {
+    "prefix": "pscircle",
+    "body": [
+      "exports['ps-ui']:Circle(function(success)",
+      "  if success then",
+      "    $1",
+      "  else",
+      "    $2",
+      "  end",
+      "end, $3, $4) -- NumberOfCircles, MS",
+    ],
+    "description": "ps-ui Circle export"
+  },
+
+  "ps-ui Maze": {
+    "prefix": "psmaze",
+    "body": [
+    "exports['ps-ui']:Maze(function(success)",
+    "  if success then",
+    "     $1",
+    "  else",
+    "     $2",
+    "  end",
+    "end, $3) -- Hack Time Limit",
+    ],
+    "description": "ps-ui Maze export"
+  },
+
+  "ps-ui VarHack": {
+    "prefix": "psvarhack",
+    "body": [
+    "exports['ps-ui']:VarHack(function(success)",
+    "  if success then",
+    "    $1",
+    "  else",
+    "    $2",
+    "  end",
+    "end, $3, $4) -- Number of Blocks, Time (seconds)",
+    ],
+    "description": "ps-ui Varhack export"
+  },
+
+  "ps-ui Thermite": {
+    "prefix": "psthermite",
+    "body": [
+    "exports['ps-ui']:Thermite(function(success)",
+    "  if success then",
+    "    $1",
+    "  else",
+    "    $2",
+    "  end",
+    "end, $3, $4, $5) -- Time, Gridsize (5, 6, 7, 8, 9, 10), IncorrectBlocks",
+    ],
+    "description": "ps-ui Thermite export"
+  },
+
+  "ps-ui Scrambler": {
+    "prefix": "psscrambler",
+    "body": [
+    "exports['ps-ui']:Scrambler(function(success)",
+    "  if success then",
+    "    $1",
+    "  else",
+    "    $2",
+    "  end",
+    "end, ${3:'type'}, $4, $5) -- Type (alphabet, numeric, alphanumeric, greek, braille, runes), Time (Seconds), Mirrored (0: Normal, 1: Normal + Mirrored 2: Mirrored only )",
+    ],
+    "description": "ps-ui Scrambler export"
   },
 }

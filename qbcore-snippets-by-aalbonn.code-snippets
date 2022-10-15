@@ -640,4 +640,12 @@
     ],
     "description": "ps-ui Scrambler export"
   },
+
+  "Has Permission": {
+    "prefix": "qbhaspermission",
+    "body": [
+    " QBCore.Functions.HasPermission(source, '$1')"
+    ],
+    "description": "Has Permission for server side"
+  },
 }

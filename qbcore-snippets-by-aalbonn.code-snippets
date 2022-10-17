@@ -656,4 +656,12 @@
     ],
     "description": "Creating ped with base export"
   },
+
+  "Deleteped": {
+    "prefix": "deleteped",
+    "body": [
+    "exports['aalbonn-base']:DeletePed(v.name)"
+    ],
+    "description": "Deleting ped with base export"
+  },
 }

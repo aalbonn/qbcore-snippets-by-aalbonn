@@ -644,8 +644,16 @@
   "Has Permission": {
     "prefix": "qbhaspermission",
     "body": [
-    " QBCore.Functions.HasPermission(source, '$1')"
+    "QBCore.Functions.HasPermission(source, '$1')"
     ],
     "description": "Has Permission for server side"
+  },
+
+  "Ped Create": {
+    "prefix": "pedcreate",
+    "body": [
+    "exports['aalbonn-base']:PedCreate(v.name, v.ped, v.coords.x, v.coords.y, v.coords.z, v.heading)"
+    ],
+    "description": "Creating ped with base export"
   },
 }

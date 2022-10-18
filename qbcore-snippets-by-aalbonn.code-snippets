@@ -668,7 +668,7 @@
   "RemoveZone": {
     "prefix": "RemoveZone",
     "body": [
-    "exports['qb-target']:RemoveZone('${1:Zone Name})"
+    "exports['qb-target']:RemoveZone('${1:Zone Name}')"
     ],
     "description": "qb-target remove zones that created"
   },

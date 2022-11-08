@@ -477,20 +477,6 @@
     "description": "register command (use qbcommandsadd if you are in server side)"
   },
 
-  "aalbonn-base item control": {
-    "prefix": "aalbonnitemcontol",
-    "body": [
-    "QBCore.Functions.TriggerCallback('aalbonn-base:item-kontrol', function(qtty)",
-    "  if qtty > 0 then",
-    "",
-    "  else",
-    "",
-    "  end",
-    "end, ${1:item})"
-    ],
-    "description": "it's just for my server"
-  },
-
   "aalbonn-base hasmoney": {
     "prefix": "aalbonnhasmoney",
     "body": [
@@ -588,13 +574,13 @@
   "ps-ui Maze": {
     "prefix": "psmaze",
     "body": [
-    "exports['ps-ui']:Maze(function(success)",
-    "  if success then",
-    "     $1",
-    "  else",
-    "     $2",
-    "  end",
-    "end, $3) -- Hack Time Limit",
+      "exports['ps-ui']:Maze(function(success)",
+      "  if success then",
+      "     $1",
+      "  else",
+      "     $2",
+      "  end",
+      "end, $3) -- Hack Time Limit",
     ],
     "description": "ps-ui Maze export"
   },
@@ -602,13 +588,13 @@
   "ps-ui VarHack": {
     "prefix": "psvarhack",
     "body": [
-    "exports['ps-ui']:VarHack(function(success)",
-    "  if success then",
-    "    $1",
-    "  else",
-    "    $2",
-    "  end",
-    "end, $3, $4) -- Number of Blocks, Time (seconds)",
+      "exports['ps-ui']:VarHack(function(success)",
+      "  if success then",
+      "    $1",
+      "  else",
+      "    $2",
+      "  end",
+      "end, $3, $4) -- Number of Blocks, Time (seconds)",
     ],
     "description": "ps-ui Varhack export"
   },
@@ -616,27 +602,27 @@
   "ps-ui Thermite": {
     "prefix": "psthermite",
     "body": [
-    "exports['ps-ui']:Thermite(function(success)",
-    "  if success then",
-    "    $1",
-    "  else",
-    "    $2",
-    "  end",
-    "end, $3, $4, $5) -- Time, Gridsize (5, 6, 7, 8, 9, 10), IncorrectBlocks",
-    ],
+      "exports['ps-ui']:Thermite(function(success)",
+      "  if success then",
+      "    $1",
+      "  else",
+      "    $2",
+      "  end",
+      "end, $3, $4, $5) -- Time, Gridsize (5, 6, 7, 8, 9, 10), IncorrectBlocks",
+      ],
     "description": "ps-ui Thermite export"
   },
 
   "ps-ui Scrambler": {
     "prefix": "psscrambler",
     "body": [
-    "exports['ps-ui']:Scrambler(function(success)",
-    "  if success then",
-    "    $1",
-    "  else",
-    "    $2",
-    "  end",
-    "end, ${3:'type'}, $4, $5) -- Type (alphabet, numeric, alphanumeric, greek, braille, runes), Time (Seconds), Mirrored (0: Normal, 1: Normal + Mirrored 2: Mirrored only )",
+      "exports['ps-ui']:Scrambler(function(success)",
+      "  if success then",
+      "    $1",
+      "  else",
+      "    $2",
+      "  end",
+      "end, ${3:'type'}, $4, $5) -- Type (alphabet, numeric, alphanumeric, greek, braille, runes), Time (Seconds), Mirrored (0: Normal, 1: Normal + Mirrored 2: Mirrored only )",
     ],
     "description": "ps-ui Scrambler export"
   },
@@ -644,7 +630,7 @@
   "Has Permission": {
     "prefix": "qbhaspermission",
     "body": [
-    "QBCore.Functions.HasPermission(source, '$1')"
+      "QBCore.Functions.HasPermission(source, '$1')"
     ],
     "description": "Has Permission for server side"
   },
@@ -652,7 +638,7 @@
   "Ped Create": {
     "prefix": "pedcreate",
     "body": [
-    "exports['aalbonn-base']:PedCreate(v.name, v.ped, v.coords.x, v.coords.y, v.coords.z, v.heading)"
+      "exports['aalbonn-base']:PedCreate(v.name, v.ped, v.coords.x, v.coords.y, v.coords.z, v.heading)"
     ],
     "description": "Creating ped with base export"
   },
@@ -660,7 +646,7 @@
   "Deleteped": {
     "prefix": "deleteped",
     "body": [
-    "exports['aalbonn-base']:DeletePed(v.name)"
+      "exports['aalbonn-base']:DeletePed(v.name)"
     ],
     "description": "Deleting ped with base export"
   },
@@ -668,8 +654,94 @@
   "RemoveZone": {
     "prefix": "RemoveZone",
     "body": [
-    "exports['qb-target']:RemoveZone('${1:Zone Name}')"
+      "exports['qb-target']:RemoveZone('${1:Zone Name}')"
     ],
     "description": "qb-target remove zones that created"
+  },
+
+  "Police Count": {
+    "prefix": "aalbonnpolice",
+    "body": [
+      "QBCore.Functions.TriggerCallback('aalbonn-base:polis-sayi', function(dutyCop)",
+      "   if dutyCop > ${1:Amount} then",
+      "       $2",
+      "   else",
+      "       QBCore.Functions.Notify('Not enough cops', 'error')",
+      "   end",
+      "end)"
+    ],
+    "description": "Gets on duty cops from base"
+  },
+
+  "Ambulance Count": {
+    "prefix": "aalbonnambulance",
+    "body": [
+      "QBCore.Functions.TriggerCallback('aalbonn-base:ems-sayi', function(dutyEms)",
+      "   if dutyEms > ${1:Amount} then",
+      "       $2",
+      "   else",
+      "       QBCore.Functions.Notify('Not enough EMS', 'error')",
+      "   end",
+      "end)"
+    ],
+    "description": "Gets on duty ems from base"
+  },
+
+  "Mechanic Count": {
+    "prefix": "aalbonnmechanic",
+    "body": [
+      "QBCore.Functions.TriggerCallback('aalbonn-base:mekanik-sayi', function(dutyMechanic)",
+      "   if dutyMechanic > ${1:Amount} then",
+      "       $2",
+      "   else",
+      "       QBCore.Functions.Notify('Not enough Mechanic', 'error')",
+      "   end",
+      "end)"
+    ],
+    "description": "Gets on duty mechanic from base"
+  },
+
+  "Permission Check for Client side": {
+    "prefix": "aalbonnhasperm",
+    "body": [
+      "QBCore.Functions.TriggerCallback('aalbonn:HasPermission', function(result)",
+      "    if result then",
+      "        $1",
+      "    else",
+      "        QBCore.Functions.Notify('Insufficient Permission', 'error')",
+      "    end",
+      "end, '${2:Permission}')",
+    ],
+    "description": "Checks permission from base"
+  },
+
+  "Get cooldown": {
+    "prefix": "getcooldown",
+    "body": [
+      "exports['aalbonn-cooldowns']:GetCooldown(function(cooldown)",
+      "  if cooldown < 0 then",
+      "      print(string.format('You need to wait %s seconds before robbing this shop again', cooldown))",
+      "  else",
+      "      -- Do stuff",
+      "  end",
+      "end, '${1:Type}')",
+    ],
+    "description": "Gets cooldown for both sides"
+  },
+
+  "Set Cooldown": {
+    "prefix": "setcooldown",
+    "body": [
+      "exports['aalbonn-cooldowns']:SetCooldown('${1:Type}', ${2:Time in second})"
+    ],
+    "description": "Sets cooldown for both sides"
+  },
+
+  "qb-core Exploit Ban": {
+    "prefix": "qbexploitban",
+    "body": [
+      "exports['qb-core']:ExploitBan(source, '${1:Reason}')"
+    ],
+    "description": "Gets cooldown for both sides"
   },
 }

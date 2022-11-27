@@ -140,10 +140,7 @@
     "prefix": "onResourceStart",
     "body": [
       "AddEventHandler('onResourceStart', function(resource)",
-      "   if resource == GetCurrentResourceName() then",
-      "      Wait(100)",
       "      $0",
-      "   end",
       "end)",
     ],
     "description": "This code runs as soon as a resource starts."
@@ -153,9 +150,7 @@
     "prefix": "onResourceStop",
     "body": [
       "AddEventHandler('onResourceStop', function(resource)",
-      "   if resource == GetCurrentResourceName() then",
       "      $0",
-      "   end",
       "end)",
     ],
     "description": "This code runs as soon as a resource is stopped."
@@ -176,7 +171,7 @@
     "body": [
     "local Player = QBCore.Functions.GetPlayer(source)",
     ],
-    "description": "(server side)"
+    "description": "server side"
   },
 
   "PlayerData ": {
@@ -204,20 +199,20 @@
       "    PlayerData = val",
       "end)",
     ],
-    "description": "This is how to register playerdata without having to call the function everytime. -- Code thanks to BerkieB#5038"
+    "description": "This is how to register playerdata without having to call the function everytime."
   },
 
   "Progressbar": {
     "prefix": "qbprogress",
     "body": [
-      "QBCore.Functions.Progressbar('name_here', 'Text that shows on bar...', 5000, false, true, { -- Name | Label | Time | useWhileDead | canCancel",
+      "QBCore.Functions.Progressbar('name_here', 'Text that shows on bar...', 5000, false, true, {",
       "   disableMovement = true,",
       "   disableCarMovement = true,",
       "   disableMouse = false,",
       "   disableCombat = true,",
-      " }, {}, {}, {}, function() -- Play When Done",
+      " }, {}, {}, {}, function()",
       "   --Stuff goes here",
-      " end, function() -- Play When Cancel",
+      " end, function()",
       "   --Stuff goes here",
       "end)",
     ],
@@ -255,7 +250,8 @@
   "DeleteVehicle": {
     "prefix": "qbdeletevehicle",
     "body": [
-      "QBCore.Functions.DeleteVehicle(Vehicle)",
+      "local vehicle = GetVehiclePedIsIn(PlayerPedId())",
+      "QBCore.Functions.DeleteVehicle(vehicle)",
     ],
     "description": "Deletes vehicle entity."
   },
@@ -286,7 +282,6 @@
       "",
       "server_scripts {",
       "    '@oxmysql/lib/MySQL.lua',",
-      "    'config/config_sv.lua', -- Non globbing method (Server config for keeping webhooks or other important information)",
       "    'server/*.lua'",
       "}",
       "",
@@ -295,7 +290,7 @@
       "files {",
       "    'html/ui.html',",
       "    'html/css/main.css',",
-      "    'html/js/*.js', -- Globbing also works here in case you have multiple js files",
+      "    'html/js/*.js',",
       "    'html/js/app.js'",
       "}",
       "",
@@ -303,7 +298,7 @@
       "",
       "}",
       "",
-      "lua54 'yes' -- Add in case you want to use lua 5.4 (https://www.lua.org/manual/5.4/manual.html)",
+      "lua54 'yes'",
     ],
     "description": "Pastes an Example Manifest for you to edit."
   },
@@ -390,7 +385,7 @@
       "local Player = QBCore.Functions.GetPlayer(source)",
       "TriggerEvent('aalbonn:logs', '${1:Log Channel}', '${2:Log Deails}', source, Player.PlayerData.source)",
     ],
-    "description": "example aalbonn-log just for my log system"
+    "description": "example log system for aalbonn-base"
   },
 
   "getmoney": {
@@ -402,53 +397,29 @@
     "description": "getmoney type"
   },
 
+  "getmoneyclient": {
+    "prefix": "qbgetmoneyclient",
+    "body": [
+      "QBCore.Functions.GetPlayerData().money['${1:Money Type}']",
+    ],
+    "description": "getmoney type client"
+  },
+
   "sendmailclient": {
     "prefix": "qbsendnewmailclient",
     "body": [
-      "RegisterNetEvent('${1:Resource Name}:client:sendEmail', function(charinfo) -- usage TriggerClientEvent('Resource Name:client:sendEmail', Player.PlayerData.charinfo)",
-      "    SetTimeout(math.random(2500, 4000), function()",
-      "        local gender = Lang:t('email.mr')",
-      "        if PlayerData.charinfo.gender == 1 then",
-      "            gender = Lang:t('email.mrs')",
-      "        end",
-      "        TriggerServerEvent('qb-phone:server:sendNewMail', {",
-      "            sender = Lang:t('email.sender'),",
-      "            subject = Lang:t('email.subject'),",
-      "            message =  Lang:t('email.message', {gender = gender, lastname = charinfo.lastname, firstname = charinfo.firstname, phone = charinfo.phone}),",
-      "            button = {}",
-      "        })",
-      "    end)",
-      "end)"
+      "local gender = Lang:t('email.mr')",
+      "if PlayerData.charinfo.gender == 1 then",
+      "    gender = Lang:t('email.mrs')",
+      "end",
+      "TriggerServerEvent('qb-phone:server:sendNewMail', {",
+      "    sender = Lang:t('email.sender'),",
+      "    subject = Lang:t('email.subject'),",
+      "    message =  Lang:t('email.message', {gender = gender, lastname = charinfo.lastname, firstname = charinfo.firstname, phone = charinfo.phone}),",
+      "    button = {}",
+      "})",
     ],
     "description": "Send mail (client side)"
-  },
-
-  "lsrplock": {
-    "prefix": "lsrplock",
-    "body": [
-      "TriggerEvent('lsrp-lockpick:StartLockpickfo', function(result)",
-        "if result then",
-        "",
-        "else",
-        "   QBCore.Functions.Notify('Failed', 'error')",
-        "end",
-      "end)",
-    ],
-    "description": "lsrp lockpick https://github.com/aalbonn/lsrp-lockpickfo "
-  },
-
-  "HasItem Callback": {
-    "prefix": "qbhasitemcallback",
-    "body": [
-      "QBCore.Functions.TriggerCallback('QBCore:HasItem', function(HasItem)",
-      "    if HasItem then",
-      "       $0",
-      "    else",
-      "        QBCore.Functions.Notify('You dont have the item', 'error')",
-      "    end",
-      "end, '${1:Item}')",
-    ],
-    "description": "Triggers callback from qb-core server (client use)"
   },
 
   "Emote Start": {
@@ -488,7 +459,7 @@
     "  end",
     "end, '${1:type}', ${2:amount})"
     ],
-    "description": "it's just for my server"
+    "description": "works with aalbonn-base"
   },
 
   "Player Ped": {
@@ -518,7 +489,7 @@
     "    },",
     "})"
     ],
-    "description": "playerped thing for client side"
+    "description": "Creates qb-menu"
   },
 
   "Settimout": {
@@ -528,7 +499,7 @@
     "    $0",
     "end)"
     ],
-    "description": "playerped thing for client side"
+    "description": "Set Timeout function"
   },
 
   "function": {
@@ -538,7 +509,7 @@
     "    $1",
     "end"
     ],
-    "description": "playerped thing for client side"
+    "description": "Creates a new function for both sides"
   },
 
   "setmetadata": {
@@ -546,7 +517,7 @@
     "body": [
     "Player.Functions.SetMetaData('${1:MetaData}', ${2:Value})",
     ],
-    "description": "playerped thing for client side"
+    "description": "Sets metadata (Server side)"
   },
 
   "getplayerdata": {
@@ -554,7 +525,7 @@
     "body": [
     "QBCore.Functions.GetPlayerData()",
     ],
-    "description": "get playerdata for only client side"
+    "description": "get playerdata for client side"
   },
 
   "ps-ui Circle": {
@@ -742,6 +713,6 @@
     "body": [
       "exports['qb-core']:ExploitBan(source, '${1:Reason}')"
     ],
-    "description": "Gets cooldown for both sides"
+    "description": "Bans player (Server side only)"
   },
 }

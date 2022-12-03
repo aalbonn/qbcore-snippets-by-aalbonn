@@ -723,4 +723,12 @@
     ],
     "description": "Deletes Object, Entity (Client only)"
   },
+
+  "Spawn Point Clear": {
+    "prefix": "qbspawnpoint",
+    "body": [
+      "QBCore.Functions.IsSpawnPointClear(${1:Coords}, ${2:Radius}"
+    ],
+    "description": "Checks the coords and returns (Client only)"
+  },
 }

@@ -743,4 +743,12 @@
     ],
     "description": "Get vehicle plate (Client only)"
   },
+
+  "Get Closest Player": {
+    "prefix": "qbgetcloseplayer",
+    "body": [
+      "QBCore.Functions.GetClosestPlayer()"
+    ],
+    "description": "Get closest player (Client only)"
+  },
 }
